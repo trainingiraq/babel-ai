@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: babel-ai
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: APP_ACCESS_CODE
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.4-nano
+      - key: DAILY_REQUEST_LIMIT
+        value: "50"
