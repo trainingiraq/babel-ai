@@ -1,0 +1,42 @@
+<svg width="720" height="230" viewBox="0 0 720 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">babel-ai بابل</title>
+  <desc id="desc">Modern Babel AI logo with a chat bubble B icon and Arabic Babel below the English name.</desc>
+  <rect width="720" height="230" rx="24" fill="#FFFCF7"/>
+  <defs>
+    <linearGradient id="babelGradient" x1="54" y1="34" x2="198" y2="188" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12C8DD"/>
+      <stop offset="0.46" stop-color="#13B8C7"/>
+      <stop offset="1" stop-color="#0A1640"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(54 36)">
+    <path
+      d="M70 3H126C161 3 187 29 187 64C187 84 178 101 163 112C182 122 194 141 194 164C194 200 166 226 129 226H70C36 226 10 200 10 166V65C10 31 36 3 70 3Z"
+      stroke="url(#babelGradient)"
+      stroke-width="14"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M28 172L16 221L61 194"
+      stroke="#0A1640"
+      stroke-width="14"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <circle cx="65" cy="72" r="18" fill="#0A1640"/>
+    <circle cx="122" cy="124" r="18" fill="#13C6CE"/>
+    <circle cx="94" cy="176" r="18" fill="#0A1640"/>
+    <circle cx="36" cy="134" r="18" fill="#0A1640"/>
+    <path d="M80 83L107 108" stroke="#0A1640" stroke-width="6" stroke-linecap="round"/>
+    <path d="M116 142L101 160" stroke="#0A1640" stroke-width="6" stroke-linecap="round"/>
+    <path d="M51 148L77 168" stroke="#0A1640" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(292 73)">
+    <text x="0" y="74" fill="#0A1640" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="500" letter-spacing="-2">babel-</text>
+    <text x="238" y="74" fill="#13C6CE" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-2">ai</text>
+    <text x="126" y="130" text-anchor="middle" direction="rtl" unicode-bidi="bidi-override" fill="#0A1640" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="38" font-weight="800">بابل</text>
+  </g>
+</svg>
