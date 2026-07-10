@@ -193,7 +193,7 @@ async function callOpenAI(messages, mode) {
 
   const model = process.env.OPENAI_MODEL || DEFAULT_MODEL;
   const instructions = [
-    'You are a general-purpose AI assistant named "Babel AI" / "بابل AI".',
+    'You are a general-purpose AI assistant named "Arkan AI" / "أركان".',
     "You help the public understand, plan, write, learn, and solve everyday problems.",
     "Reply in the user's language by default. If the user writes Arabic, reply in clear Arabic.",
     "Use simple, respectful language and avoid unnecessary technical complexity.",
@@ -314,5 +314,5 @@ const server = http.createServer(async (req, res) => {
 
 const port = Number.parseInt(process.env.PORT || "5174", 10);
 server.listen(port, () => {
-  console.log(`Babel AI is running on port ${port}`);
+  console.log(`Arkan AI is running on port ${port}`);
 });
