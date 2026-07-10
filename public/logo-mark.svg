@@ -1,34 +1,37 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Babel AI mark</title>
-  <desc id="desc">Chat bubble shaped like the letter B with connected AI nodes.</desc>
+  <title id="title">Arkan AI mark</title>
+  <desc id="desc">Angular A chat mark with connected AI nodes.</desc>
   <rect width="256" height="256" rx="56" fill="#FFFCF7"/>
   <defs>
-    <linearGradient id="markGradient" x1="46" y1="30" x2="207" y2="217" gradientUnits="userSpaceOnUse">
+    <linearGradient id="markGradient" x1="48" y1="28" x2="211" y2="224" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#12C8DD"/>
-      <stop offset="0.46" stop-color="#13B8C7"/>
+      <stop offset="0.48" stop-color="#10AFC1"/>
       <stop offset="1" stop-color="#0A1640"/>
     </linearGradient>
   </defs>
   <path
-    d="M88 30H151C188 30 215 58 215 95C215 116 205 135 189 147C209 158 222 179 222 203C222 241 193 270 153 270H88C51 270 23 242 23 205V96C23 59 51 30 88 30Z"
-    transform="translate(2 -22)"
+    d="M128 31L220 214H179L158 171H97L76 214H35L128 31Z"
     stroke="url(#markGradient)"
     stroke-width="16"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M46 184L33 237L82 207"
-    stroke="#0A1640"
+    d="M95 171H161"
+    stroke="#13C6CE"
     stroke-width="16"
+    stroke-linecap="round"
+  />
+  <path
+    d="M59 204L45 241L88 221"
+    stroke="#0A1640"
+    stroke-width="15"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
-  <circle cx="88" cy="82" r="18" fill="#0A1640"/>
-  <circle cx="149" cy="137" r="18" fill="#13C6CE"/>
-  <circle cx="119" cy="191" r="18" fill="#0A1640"/>
-  <circle cx="57" cy="147" r="18" fill="#0A1640"/>
-  <path d="M104 94L133 121" stroke="#0A1640" stroke-width="7" stroke-linecap="round"/>
-  <path d="M143 154L126 176" stroke="#0A1640" stroke-width="7" stroke-linecap="round"/>
-  <path d="M72 161L100 182" stroke="#0A1640" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="128" cy="91" r="18" fill="#0A1640"/>
+  <circle cx="99" cy="148" r="18" fill="#13C6CE"/>
+  <circle cx="157" cy="148" r="18" fill="#0A1640"/>
+  <path d="M121 108L106 132" stroke="#0A1640" stroke-width="7" stroke-linecap="round"/>
+  <path d="M136 108L151 132" stroke="#0A1640" stroke-width="7" stroke-linecap="round"/>
 </svg>
