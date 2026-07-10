@@ -14,15 +14,17 @@ const chatListEl = document.querySelector("#chat-list");
 const newChatButton = document.querySelector("#new-chat");
 
 const legacyStorageKey = "public-chat-mvp-history";
-const chatsStorageKey = "babel-ai-chats-v1";
-const activeChatStorageKey = "babel-ai-active-chat-id";
+const chatsStorageKey = "arkan-ai-chats-v1";
+const activeChatStorageKey = "arkan-ai-active-chat-id";
+const previousChatsStorageKey = "babel-ai-chats-v1";
+const previousActiveChatStorageKey = "babel-ai-active-chat-id";
 const accessCodeStorageKey = "public-chat-access-code";
 const maxStoredMessages = 80;
 
 const welcomeMessage = {
   role: "assistant",
   content:
-    "مرحبًا. أنا بابل AI، مساعدك الذكي. اسألني عن فكرة، رسالة، خطة، تعلم موضوع، أو تنظيم مهمة يومية.",
+    "مرحبًا. أنا Arkan AI، مساعدك الذكي. اسألني عن فكرة، رسالة، خطة، تعلم موضوع، أو تنظيم مهمة يومية.",
 };
 
 let mode = "balanced";
@@ -58,18 +60,25 @@ function createChat(title = "محادثة جديدة", seedMessages) {
   };
 }
 
+function rebrandText(text) {
+  return String(text || "")
+    .replaceAll("بابل AI", "Arkan AI")
+    .replaceAll("Babel AI", "Arkan AI")
+    .replaceAll("babel-ai", "arkan-ai");
+}
+
 function normalizeChat(chat) {
   if (!chat || typeof chat !== "object") return null;
   if (!Array.isArray(chat.messages) || chat.messages.length === 0) return null;
 
   return {
     id: String(chat.id || newId()),
-    title: String(chat.title || "محادثة جديدة").slice(0, 80),
+    title: rebrandText(chat.title || "محادثة جديدة").slice(0, 80),
     messages: chat.messages
       .filter((message) => message && (message.role === "user" || message.role === "assistant"))
       .map((message) => ({
         role: message.role,
-        content: String(message.content || ""),
+        content: rebrandText(message.content),
       }))
       .slice(-maxStoredMessages),
     createdAt: Number(chat.createdAt || Date.now()),
@@ -91,8 +100,10 @@ function loadLegacyChat() {
 }
 
 function loadChats() {
+  const savedChats = localStorage.getItem(chatsStorageKey) || localStorage.getItem(previousChatsStorageKey);
+
   try {
-    const saved = JSON.parse(localStorage.getItem(chatsStorageKey) || "null");
+    const saved = JSON.parse(savedChats || "null");
     if (Array.isArray(saved)) {
       const normalized = saved.map(normalizeChat).filter(Boolean);
       if (normalized.length > 0) return normalized;
@@ -106,7 +117,7 @@ function loadChats() {
 }
 
 function selectInitialChatId() {
-  const savedId = localStorage.getItem(activeChatStorageKey);
+  const savedId = localStorage.getItem(activeChatStorageKey) || localStorage.getItem(previousActiveChatStorageKey);
   if (savedId && chats.some((chat) => chat.id === savedId)) {
     return savedId;
   }
@@ -305,7 +316,7 @@ function getApiMessages() {
 
 async function sendMessage(text) {
   setSending(true);
-  setStatus("يرسل الطلب إلى بابل AI...");
+  setStatus("يرسل الطلب إلى Arkan AI...");
 
   const pending = { role: "assistant", content: "أفكر في الرد...", pending: true };
   messages.push(pending);
@@ -472,7 +483,7 @@ clearButton.addEventListener("click", () => {
   messages = [
     {
       role: "assistant",
-      content: "تم مسح المحادثة الحالية. بابل AI جاهز لسؤال جديد.",
+      content: "تم مسح المحادثة الحالية. Arkan AI جاهز لسؤال جديد.",
     },
   ];
 
