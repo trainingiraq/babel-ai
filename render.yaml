@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: arkan-ai
+    name: training-iraq-ai
     env: node
     buildCommand: npm install
     startCommand: npm start
