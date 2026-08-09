@@ -14,17 +14,17 @@ const chatListEl = document.querySelector("#chat-list");
 const newChatButton = document.querySelector("#new-chat");
 
 const legacyStorageKey = "public-chat-mvp-history";
-const chatsStorageKey = "arkan-ai-chats-v1";
-const activeChatStorageKey = "arkan-ai-active-chat-id";
-const previousChatsStorageKey = "babel-ai-chats-v1";
-const previousActiveChatStorageKey = "babel-ai-active-chat-id";
+const chatsStorageKey = "training-iraq-ai-chats-v1";
+const activeChatStorageKey = "training-iraq-ai-active-chat-id";
+const previousChatsStorageKeys = ["arkan-ai-chats-v1", "babel-ai-chats-v1"];
+const previousActiveChatStorageKeys = ["arkan-ai-active-chat-id", "babel-ai-active-chat-id"];
 const accessCodeStorageKey = "public-chat-access-code";
 const maxStoredMessages = 80;
 
 const welcomeMessage = {
   role: "assistant",
   content:
-    "مرحبًا. أنا Arkan AI، مساعدك الذكي. اسألني عن فكرة، رسالة، خطة، تعلم موضوع، أو تنظيم مهمة يومية.",
+    "مرحبًا. أنا تدريب العراق AI، مساعدك الذكي. اسألني عن فكرة، رسالة، خطة، تعلم موضوع، أو تنظيم مهمة يومية.",
 };
 
 let mode = "balanced";
@@ -62,9 +62,12 @@ function createChat(title = "محادثة جديدة", seedMessages) {
 
 function rebrandText(text) {
   return String(text || "")
-    .replaceAll("بابل AI", "Arkan AI")
-    .replaceAll("Babel AI", "Arkan AI")
-    .replaceAll("babel-ai", "arkan-ai");
+    .replaceAll("أركان", "تدريب العراق AI")
+    .replaceAll("Arkan AI", "تدريب العراق AI")
+    .replaceAll("arkan-ai", "training-iraq-ai")
+    .replaceAll("بابل AI", "تدريب العراق AI")
+    .replaceAll("Babel AI", "تدريب العراق AI")
+    .replaceAll("babel-ai", "training-iraq-ai");
 }
 
 function normalizeChat(chat) {
@@ -100,7 +103,9 @@ function loadLegacyChat() {
 }
 
 function loadChats() {
-  const savedChats = localStorage.getItem(chatsStorageKey) || localStorage.getItem(previousChatsStorageKey);
+  const savedChats =
+    localStorage.getItem(chatsStorageKey) ||
+    previousChatsStorageKeys.map((key) => localStorage.getItem(key)).find(Boolean);
 
   try {
     const saved = JSON.parse(savedChats || "null");
@@ -117,7 +122,9 @@ function loadChats() {
 }
 
 function selectInitialChatId() {
-  const savedId = localStorage.getItem(activeChatStorageKey) || localStorage.getItem(previousActiveChatStorageKey);
+  const savedId =
+    localStorage.getItem(activeChatStorageKey) ||
+    previousActiveChatStorageKeys.map((key) => localStorage.getItem(key)).find(Boolean);
   if (savedId && chats.some((chat) => chat.id === savedId)) {
     return savedId;
   }
@@ -316,7 +323,7 @@ function getApiMessages() {
 
 async function sendMessage(text) {
   setSending(true);
-  setStatus("يرسل الطلب إلى Arkan AI...");
+  setStatus("يرسل الطلب إلى تدريب العراق AI...");
 
   const pending = { role: "assistant", content: "أفكر في الرد...", pending: true };
   messages.push(pending);
@@ -483,7 +490,7 @@ clearButton.addEventListener("click", () => {
   messages = [
     {
       role: "assistant",
-      content: "تم مسح المحادثة الحالية. Arkan AI جاهز لسؤال جديد.",
+      content: "تم مسح المحادثة الحالية. تدريب العراق AI جاهز لسؤال جديد.",
     },
   ];
 
