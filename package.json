@@ -2,7 +2,7 @@
   "name": "training-iraq-ai",
   "version": "0.1.0",
   "private": true,
-  "description": "A deployable web version of تدريب العراق AI.",
+  "description": "A deployable web version of Training Iraq AI.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
